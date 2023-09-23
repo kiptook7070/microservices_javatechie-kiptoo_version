@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app1:
+    build:
+      context: ./config-service
+      dockerfile: Dockerfile
+    ports:
+      - 6100:6100
+
+  app2:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    ports:
+      - 6200:6200
+
+  app3:
+    build:
+      context: ./department-service
+      dockerfile: Dockerfile
+    ports:
+      - 6300:6300

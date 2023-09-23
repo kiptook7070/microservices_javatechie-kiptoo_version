@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: lb://USER-AUTH-SERVICE
+          predicates:
+            - Path=/api/account/**
+#          filters:
+#            - AuthenticationFilter
+
+        - id: department-service
+          uri: lb://DEPARTMENT-SERVICE
+          predicates:
+            - Path=/department/**
+          filters:
+            - AuthenticationFilter

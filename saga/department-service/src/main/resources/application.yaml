@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: department-service
+  config:
+    import: "optional:configserver:http://localhost:8000"
+    cloud:
+      gateway:
+        routes:
+         - id: auth-service
+           uri: lb://AUTH-SERVICE
+           predicates:
+            - Path=/auth/**
